@@ -36,7 +36,7 @@ Automatizar el proceso de supervisión de los protocolos de seguridad con el fin
 ### 2. Problemática
 En zonas de alto riesgo industrial, sea maquinaria pesada, carga o construcción, el uso del chaleco de seguridad de alta visibilidad es obligatorio para evitar accidentes graves. La supervisión humana es propensa a cometer errores, por ende la falta de una alerta inmediata impide tomar medidas preventivas a tiempo.
 
-### Hardware Propuesto
+### 3. Hardware Propuesto
 Para llevar este modelo a la planta industrial, se requerirá de la siguiente infraestructura:
 1. **Camaras de Seguridad:** De tipo IP estarán conectadas por cable Ethernet para garantizar transmisión de datos segura y eficiente. Deben tener resolución Full HD (1080p) y visión nocturna para operar en distintos turnos. Y, estarán instaladas en puntos estratégicos cubriendo los accesos a las zonas de alto riesgo.
 
@@ -44,7 +44,7 @@ Para llevar este modelo a la planta industrial, se requerirá de la siguiente in
 
 3. **Infraestructura de Red** Un switch Gigabit PoE que interconectará las cámaras con el servidor de preferencia (Edge, Google, FireFox, etc.). El servidor contará con salida a la red local de la empresa para conectarse a un gateway de correo electrónico o a una app de mensajería para notificaciones móviles.
 
-### Flujo de Funcionamiento del Sistema
+### 4. Flujo de Funcionamiento del Sistema
 El comportamiento de este sistema autónomo sigue el siguiente ciclo lógico:
 
 1. **Captura y Transmisión:** Las cámaras IP capturan de manera continua el entorno y transmiten el flujo de video en tiempo real mediante el protocolo hacia el servidor local.
@@ -64,4 +64,8 @@ El comportamiento de este sistema autónomo sigue el siguiente ciclo lógico:
 7. **Medidas:** Al recibir la alerta visual y la ubicación en tiempo real, el supervisor puede intervenir inmediatamente para pedir la detención de las máquinas o del operario y así reducir el riesgo a accidentes.
 
 ## Evidencias
-`![Modelo EPP](Proyecto Vision_Evidencias_23310341_23310374/Pruebas imagenes_23310341_23310374/Prueba10.png)`
+![img_uno](https://github.com/rubenmedinna/ProyectoPPE/blob/57f3af5c7d39fa83780970c019d66b8cd9728fa3/Proyecto%20Vision_Evidencias_23310341_23310374/Pruebas%20imagenes_23310341_23310374/Prueba10.png)
+
+![img_dos](https://github.com/rubenmedinna/ProyectoPPE/blob/57f3af5c7d39fa83780970c019d66b8cd9728fa3/Proyecto%20Vision_Evidencias_23310341_23310374/Pruebas%20imagenes_23310341_23310374/Prueba12.png)
+
+![img_tres](https://github.com/rubenmedinna/ProyectoPPE/blob/57f3af5c7d39fa83780970c019d66b8cd9728fa3/Proyecto%20Vision_Evidencias_23310341_23310374/Pruebas%20imagenes_23310341_23310374/Prueba8.png)
