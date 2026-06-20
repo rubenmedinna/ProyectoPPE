@@ -72,3 +72,5 @@ A continuación, mostramos solo algunas de las evidencias que pudimos generar du
 ![img_dos](https://github.com/rubenmedinna/ProyectoPPE/blob/57f3af5c7d39fa83780970c019d66b8cd9728fa3/Proyecto%20Vision_Evidencias_23310341_23310374/Pruebas%20imagenes_23310341_23310374/Prueba12.png)
 
 ![img_tres](https://github.com/rubenmedinna/ProyectoPPE/blob/57f3af5c7d39fa83780970c019d66b8cd9728fa3/Proyecto%20Vision_Evidencias_23310341_23310374/Pruebas%20imagenes_23310341_23310374/Prueba8.png)
+
+![video](https://github.com/rubenmedinna/ProyectoPPE/blob/7c475b2d0e0276acd67b8fce3288a46024ef47ca/Proyecto%20Vision_Evidencias_23310341_23310374/Evidencias%20detecci%C3%B3n_23310341_23310374.mp4)
