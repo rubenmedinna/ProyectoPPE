@@ -13,8 +13,9 @@ Para ejecutar y probar este proyecto, siga las siguientes instrucciones:
 `Entorno de ejecución > Cambiar tipo de entorno de ejecución > GPU T4`
 
 3. **Ejecutar el código** Ejecute todas las celdas de código de arriba hacia abajo para generar automáticamente los archivos de entrenamiento train, test y valid.
+4. **Obtener el modelo** Después de esto, podemos encontrar nuestro modelo en la carpeta runs-detect-train-weights, donde estará el mejor modelo generado y el último. Tomaremos el mejor.
 
-4. **Prueba de detección:** Podrá probar el funcionamiento del modelo ejecutando el siguiente comando:
+5. **Prueba de detección:** Podrá probar el funcionamiento del modelo ejecutando el siguiente comando:
    ```python
    res[6].show()
 
@@ -28,13 +29,13 @@ pip install ultralytics roboflow opencv-python
 Para que el programa se pueda ejecutar en su totalidad, el programa abrirá una ventana emergente donde usted podrá visualizar en tiempo real cuando la cámara detecte si trae o no puesto el operador un chaleco de seguridad.
 
 ## Caso de Estudio
-Se utilizo el modelo YOLOv11 de la familia YOLO para la deteccion de chalecos de seguridad (Equipo de Proteccion Personal) en entornos industriales de alto riesgo.
+Se utilizo el modelo YOLOv11 de la familia YOLO para la deteccion de chalecos de seguridad y cascos(Equipo de Proteccion Personal) en entornos industriales de alto riesgo.
  
 ### 1. Objetivo
 Automatizar el proceso de supervisión de los protocolos de seguridad con el fin de reducir el riesgo de accidentes laborales por descuido en el uso del EPP. 
 
 ### 2. Problemática
-En zonas de alto riesgo industrial, sea maquinaria pesada, carga o construcción, el uso del chaleco de seguridad de alta visibilidad es obligatorio para evitar accidentes graves. La supervisión humana es propensa a cometer errores, por ende la falta de una alerta inmediata impide tomar medidas preventivas a tiempo.
+En zonas de alto riesgo industrial, sea maquinaria pesada, carga o construcción, el uso del chaleco de seguridad de alta visibilidad y el casco es obligatorio para evitar accidentes graves. La supervisión humana es propensa a cometer errores, por ende la falta de una alerta inmediata impide tomar medidas preventivas a tiempo.
 
 ### 3. Hardware Propuesto
 Para llevar este modelo a la planta industrial, se requerirá de la siguiente infraestructura:
@@ -49,21 +50,23 @@ El comportamiento de este sistema autónomo sigue el siguiente ciclo lógico:
 
 1. **Captura y Transmisión:** Las cámaras IP capturan de manera continua el entorno y transmiten el flujo de video en tiempo real mediante el protocolo hacia el servidor local.
 
-2. **Conexión con YOLO:** El servidor procesa cada fotograma a través del `modelo YOLOv11` entrenado en este proyecto, el cual está capacitado para identificar y localizar de manera simultánea dos clases: `Vest y No-Vest`
+2. **Conexión con YOLO:** El servidor procesa cada fotograma a través del `modelo YOLOv11` entrenado en este proyecto, el cual está capacitado para identificar y localizar de manera simultánea dos clases: `Vest y No-Vest` o `Helmet y No-Helmet`
 
-3. **Lógica de Validación:** Un script en Python evalúa espacialmente las detecciones. Si el sistema detecta un cuadro delimitador de la clase No-Vest por un período continuo mayor a 5 segundos, el sistema activa el estado de "Infracción de Seguridad".
+3. **Lógica de Validación:** Un script en Python evalúa espacialmente las detecciones. Si el sistema detecta un cuadro delimitador de la clase No-Vest o No-Helmet por un período continuo mayor a 5 segundos, el sistema activa el estado de "Infracción de Seguridad".
 
-4. **Generación de Evidencia:** El software toma instantáneamente una captura de pantalla del fotograma exacto de la infracción, dibuja un recuadro alrededor del infractor con la etiqueta No-Vest junto con la fecha y hora exacta. 
+4. **Generación de Evidencia:** El software toma instantáneamente una captura de pantalla del fotograma exacto de la infracción, dibuja un recuadro alrededor del infractor con la etiqueta No-Vest o No-Helmet junto con la fecha y hora exacta. 
 
 5. **Envío de Alerta:** De forma asíncrona, el servidor invoca un servicio de mensajería o notificación utilizando la red interna o la app (Telegram, WhatsApp Business, etc.).
 
 6. **Notificación al Supervisor:** El supervisor de seguridad recibe una captura de pantalla donde se visualiza claramente la falta del operario y mensaje con la siguiente estructura:
 
 `¡ALERTA! Se ha detectado personal ingresando sin chaleco de seguridad a la zona`
+`¡ALERTA! Se ha detectado personal ingresando sin casco de seguridad a la zona`
 
 7. **Medidas:** Al recibir la alerta visual y la ubicación en tiempo real, el supervisor puede intervenir inmediatamente para pedir la detención de las máquinas o del operario y así reducir el riesgo a accidentes.
 
 ## Evidencias
+A continuación, mostramos solo algunas de las evidencias que pudimos generar durante la realización del proyecto. Sin embargo, dentro de la carpeta Evidencias, podemos encontrar muchas más pruebas con fotos y un video grabado en tiempo real con la webcam, haciendo una demostración del funcionamiento de nuestro modelo, probando dos chalecos diferentes y verificando que los detectara de forma correcta.
 ![img_uno](https://github.com/rubenmedinna/ProyectoPPE/blob/57f3af5c7d39fa83780970c019d66b8cd9728fa3/Proyecto%20Vision_Evidencias_23310341_23310374/Pruebas%20imagenes_23310341_23310374/Prueba10.png)
 
 ![img_dos](https://github.com/rubenmedinna/ProyectoPPE/blob/57f3af5c7d39fa83780970c019d66b8cd9728fa3/Proyecto%20Vision_Evidencias_23310341_23310374/Pruebas%20imagenes_23310341_23310374/Prueba12.png)
